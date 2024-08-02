@@ -1,3 +1,6 @@
+# [Abandoned]
+
+This repository holds some helm chart fixes that were missing in original project that rendered the project undeployable for me. Eventually we started sourcing metrics from Github Runner Scale Set controller and this project became unnecessary.
 
 # GitHub WebHook Exporter
 

@@ -18,6 +18,9 @@ metadata:
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
+  {{- if .Values.ingress.ingressClass }}
+  ingressClassName: {{ .Values.ingress.ingressClass }}
+  {{- end }}
   rules:
     - host: {{ .Values.ingress.fqdn }}
       http:
@@ -28,7 +31,7 @@ spec:
                 service:
                   name: {{ include "gh-action-exporter.fullname" . }}
                   port:
-                    number: {{ $.Values.service.port }}
+                    name: {{ .Values.service.portName }}
   {{- if .Values.ingress.tls }}
   tls:
     - hosts:
